@@ -1,0 +1,210 @@
+/* --- 1. GENERAL STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #ffffff;
+    color: white;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* --- 2. INDEX PAGE - FULL BACKGROUND LAYOUT --- */
+
+/* This container holds the background image */
+.hero-background {
+    background-image: url('/static/hero-image.png');
+    background-size: 100% 100%;     
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    
+    height: 100vh; 
+    width: 100vw; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5); 
+}
+
+/* This positions the text box in the bottom left */
+.bottom-left-content {
+    position: absolute; 
+    bottom: 17%;         
+    left: 9%;           
+    max-width: 600px;   
+    text-align: left;
+    padding: 20px;
+    z-index: 100;        
+}
+
+.brand {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: #ffb703; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.main-heading {
+    font-size: clamp(2.5rem, 8vw, 4.5rem); /* Scales smoothly on mobile */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #ffffff; 
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+}
+
+.outline-text {
+    color: transparent;
+    -webkit-text-stroke: 2px #ff8a00; 
+    filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.5));
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #f8f9fa; 
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
+}
+
+/* --- 4. PREMIUM BUTTONS --- */
+.btn-get-started {
+    background: linear-gradient(135deg, #ff8a00, #e52e71, #ff8a00);
+    background-size: 200% auto;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 50px; 
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 20px rgba(229, 46, 113, 0.3), 
+                inset 0 2px 2px rgba(255, 255, 255, 0.2); 
+    display: inline-block;
+}
+
+.btn-get-started:hover {
+    transform: translateY(-5px); 
+    background-position: right center; 
+    box-shadow: 0 15px 30px rgba(229, 46, 113, 0.5);
+}
+
+/* --- 5. PREDICT PAGE (GLASSMORPHISM) --- */
+.main { 
+    position: relative;
+    z-index: 10;
+    margin: 80px auto; 
+    text-align: center; 
+    background: rgba(255, 255, 255, 0.07); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 24px;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.drop-area { 
+    border: 2px dashed rgba(255, 183, 3, 0.4); 
+    padding: 50px 30px; 
+    border-radius: 20px; 
+    background-color: rgba(0, 0, 0, 0.3); 
+    transition: all 0.3s ease; 
+    cursor: pointer;
+}
+
+.drop-area:hover { 
+    border-color: #ffb703; 
+    background-color: rgba(255, 183, 3, 0.1);
+    transform: scale(1.02);
+}
+
+button[type="submit"] { 
+    padding: 15px 45px; 
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    border: none; 
+    background: linear-gradient(90deg, #ff8a00, #e52e71); 
+    color: white; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    margin-top: 30px; 
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+     
+/* --- PREDICT PAGE LAYOUT --- */
+
+/* This handles the background for the WHOLE page */
+.blurred-bg {
+    background-image: url('/static/hero-image copy.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* This creates the blur effect on only the left 40% */
+.blurred-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30vw; /* Adjust this to change how much is blurred */
+    height: 100%;
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, 0.3); /* Darkens the blurred side slightly */
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main { 
+    position: relative;
+    z-index: 10;
+    /* This moves your upload box into that left 40% area */
+    margin: 8vh 0 0 4vw; 
+    text-align: center; 
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 24px;
+    max-width: 400px; 
+    height: auto;
+    max-height: 85vh;
+    overflow-y: auto; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+body {
+    background-color: #0f0f12; 
+    color: white;
+    overflow: hidden;
+    height: 100%;
+}
