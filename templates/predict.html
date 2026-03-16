@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Detection</title>
+
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/script.js"></script>
+
+</head>
+
+<body>
+
+<div class="blurred-bg"></div>
+<div class="blurred-bg.blurred-bg1"></div>
+<div class="main">
+
+<h2>Upload Image</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<div class="drop-area" id="drop-area">
+
+<p>Drag & Drop Image Here</p>
+
+<input type="file" name="file" id="fileInput" required>
+
+</div>
+
+<br>
+
+<button type="submit">Predict</button>
+
+</form>
+
+{% if result %}
+
+<div class="result">
+
+<h2>{{result}}</h2>
+
+<img src="{{image}}" width="300">
+
+<h3>Model Confidence: {{accuracy}}%</h3>
+
+<div class="bar-container">
+
+<p>Dog</p>
+<div class="bar dog" style="width: {{dog_prob}}%">{{dog_prob}}%</div>
+
+<p>Cat</p>
+<div class="bar cat" style="width: {{cat_prob}}%">{{cat_prob}}%</div>
+
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
